@@ -1,0 +1,24 @@
+import subprocess
+
+def display_step(step_number, step_description):
+    print(f"\nStep {step_number}: {step_description}\n")
+    input("Press Enter to continue...")
+
+def run_command(command):
+    subprocess.run(command, shell=True)
+
+if __name__ == "__main__":
+    # Steps for configuring Apache
+    steps = [
+        ("Install Apache", "sudo apt-get install apache2"),
+        ("Start Apache", "sudo service apache2 start"),
+        # Add more steps here as needed
+    ]
+
+    print("Welcome to Apache Configuration Tutorial!")
+
+    for step_number, (step_description, command) in enumerate(steps, start=1):
+        display_step(step_number, step_description)
+        run_command(command)
+
+    print("\nCongratulations! You have completed the Apache configuration.")
